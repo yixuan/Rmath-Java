@@ -2,7 +2,7 @@ include ./Make.inc
 
 JAR = jar
 JAVA = java
-JAVAC = javac
+JAVAC = javac -source 1.6 -target 1.6
 
 DYNLIB = $(LIBPATH)/$(LIBNAME)
 JARFILE = rmath.jar
