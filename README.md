@@ -13,6 +13,9 @@ code in Rmath. See the next section for download link of JNA.
 ### Download
 
 - [JNA (4.2.0)](https://maven.java.net/content/repositories/releases/net/java/dev/jna/jna/4.2.0/jna-4.2.0.jar)
+- [Rmath-Java](https://github.com/yixuan/Rmath-Java/raw/master/prebuilt/rmath.jar) for Windows
+and 64-bit Linux. For other systems and architectures, the jar file can be built
+from source.
 
 ### Build from source
 
