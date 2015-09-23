@@ -1,0 +1,90 @@
+double dunif(double x, double a, double b, int lg);
+double punif(double x, double a, double b, int lt, int lg);
+double qunif(double p, double a, double b, int lt, int lg);
+
+double dgamma(double x, double shp, double scl, int lg);
+double pgamma(double x, double alp, double scl, int lt, int lg);
+double qgamma(double p, double alp, double scl, int lt, int lg);
+
+double dbeta(double x, double a, double b, int lg);
+double pbeta(double x, double p, double q, int lt, int lg);
+double qbeta(double a, double p, double q, int lt, int lg);
+
+double dlnorm(double x, double ml, double sl, int lg);
+double plnorm(double x, double ml, double sl, int lt, int lg);
+double qlnorm(double p, double ml, double sl, int lt, int lg);
+
+double dchisq(double x, double df, int lg);
+double pchisq(double x, double df, int lt, int lg);
+double qchisq(double p, double df, int lt, int lg);
+
+double dnchisq(double x, double df, double ncp, int lg);
+double pnchisq(double x, double df, double ncp, int lt, int lg);
+double qnchisq(double p, double df, double ncp, int lt, int lg);
+
+double df(double x, double df1, double df2, int lg);
+double pf(double x, double df1, double df2, int lt, int lg);
+double qf(double p, double df1, double df2, int lt, int lg);
+
+double dt(double x, double n, int lg);
+double pt(double x, double n, int lt, int lg);
+double qt(double p, double n, int lt, int lg);
+
+double dbinom(double x, double n, double p, int lg);
+double pbinom(double x, double n, double p, int lt, int lg);
+double qbinom(double p, double n, double m, int lt, int lg);
+
+double dcauchy(double x, double lc, double sl, int lg);
+double pcauchy(double x, double lc, double sl, int lt, int lg);
+double qcauchy(double p, double lc, double sl, int lt, int lg);
+
+double dexp(double x, double sl, int lg);
+double pexp(double x, double sl, int lt, int lg);
+double qexp(double p, double sl, int lt, int lg);
+
+double dgeom(double x, double p, int lg);
+double pgeom(double x, double p, int lt, int lg);
+double qgeom(double p, double pb, int lt, int lg);
+
+double dhyper(double x, double r, double b, double n, int lg);
+double phyper(double x, double r, double b, double n, int lt, int lg);
+double qhyper(double p, double r, double b, double n, int lt, int lg);
+
+double dnbinom(double x, double sz, double pb, int lg);
+double pnbinom(double x, double sz, double pb, int lt, int lg);
+double qnbinom(double p, double sz, double pb, int lt, int lg);
+
+double dpois(double x, double lb, int lg);
+double ppois(double x, double lb, int lt, int lg);
+double qpois(double p, double lb, int lt, int lg);
+
+double dweibull(double x, double sh, double sl, int lg);
+double pweibull(double x, double sh, double sl, int lt, int lg);
+double qweibull(double p, double sh, double sl, int lt, int lg);
+
+double dlogis(double x, double lc, double sl, int lg);
+double plogis(double x, double lc, double sl, int lt, int lg);
+double qlogis(double p, double lc, double sl, int lt, int lg);
+
+double dnbeta(double x, double a, double b, double ncp, int lg);
+double pnbeta(double x, double a, double b, double ncp, int lt, int lg);
+double qnbeta(double p, double a, double b, double ncp, int lt, int lg);
+
+double dnf(double x, double df1, double df2, double ncp, int lg);
+double pnf(double x, double df1, double df2, double ncp, int lt, int lg);
+double qnf(double p, double df1, double df2, double ncp, int lt, int lg);
+
+double dnt(double x, double df, double ncp, int lg);
+double pnt(double x, double df, double ncp, int lt, int lg);
+double qnt(double p, double df, double ncp, int lt, int lg);
+
+double ptukey(double q, double rr, double cc, double df, int lt, int lg);
+double qtukey(double p, double rr, double cc, double df, int lt, int lg);
+
+double dwilcox(double x, double m, double n, int lg);
+double pwilcox(double q, double m, double n, int lt, int lg);
+double qwilcox(double x, double m, double n, int lt, int lg);
+
+double dsignrank(double x, double n, int lg);
+double psignrank(double x, double n, int lt, int lg);
+double qsignrank(double x, double n, int lt, int lg);
