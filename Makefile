@@ -4,9 +4,7 @@ JAR = jar
 JAVA = java
 JAVAC = javac
 
-LIBPATH = $(shell $(JAVA) Prefix)
 DYNLIB = $(LIBPATH)/$(LIBNAME)
-
 JARFILE = rmath.jar
 
 

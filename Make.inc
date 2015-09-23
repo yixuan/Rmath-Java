@@ -1,60 +1,75 @@
-OS = $(shell uname)
-ARCH = $(shell uname -m)
-
-FC = gfortran
-FFLAGS-add += -O3
-
-USEGCC = 1
-USECLANG = 0
-
-CFLAGS-add += -Wall -O3
-
-ifeq ($(USECLANG),1)
-USEGCC = 0
-CC = clang
-endif
-
-ifeq ($(USEGCC),1)
 CC = gcc
-endif
-AR = ar
+CFLAGS_EXTRA = -Wall -O3
 
-ifeq ($(OS), Linux)
-SHLIB_EXT = so
-CFLAGS-add+=-fPIC
-FFLAGS-add+=-fPIC
+## OS detection
+## Reference: http://stackoverflow.com/questions/714100/os-detecting-makefile
+
+ifeq ($(OS), Windows_NT)
+
+    SHLIB_EXT = dll
+    PREFIX_OS = win32-
+
+    ifeq ($(PROCESSOR_ARCHITECTURE), AMD64)
+        PREFIX_ARCH = x86-64
+    endif
+
+    ifeq ($(PROCESSOR_ARCHITECTURE), x86)
+        PREFIX_ARCH = x86
+    endif
+
+else
+
+    UNAME_P := $(shell uname -p)
+
+    ifeq ($(UNAME_P), x86_64)
+        PREFIX_ARCH = x86-64
+    endif
+
+    ifneq ($(filter %86, $(UNAME_P)),)
+        PREFIX_ARCH = x86
+    endif
+
+    ifneq ($(filter arm%, $(UNAME_P)),)
+        PREFIX_ARCH = arm
+    endif
+
+    UNAME_S := $(shell uname -s)
+
+    ifeq ($(UNAME_S), Linux)
+        SHLIB_EXT = so
+        PREFIX_OS = linux-
+        CFLAGS_EXTRA += -fPIC
+    endif
+
+    ifeq ($(UNAME_S), FreeBSD)
+        SHLIB_EXT = so
+        PREFIX_OS = freebsd-
+        CFLAGS_EXTRA += -fPIC
+    endif
+
+    ifeq ($(UNAME_S), OpenBSD)
+        SHLIB_EXT = so
+        PREFIX_OS = openbsd-
+        CFLAGS_EXTRA += -fPIC
+    endif
+
+    ifeq ($(UNAME_S), Darwin)
+        SHLIB_EXT = dylib
+        PREFIX_OS = darwin
+        PREFIX_ARCH =
+        CFLAGS_EXTRA += -fPIC
+    endif
+
+    ifeq ($(UNAME_S), SunOS)
+        SHLIB_EXT = so
+        PREFIX_OS = sunos-
+        CFLAGS_EXTRA += -fPIC
+    endif
 endif
 
-ifeq ($(OS), FreeBSD)
-SHLIB_EXT = so
-CFLAGS-add+=-fPIC
-FFLAGS-add+=-fPIC
-endif
-
-ifeq ($(OS), OpenBSD)
-SHLIB_EXT = so
-CFLAGS-add+=-fPIC
-FFLAGS-add+=-fPIC
-endif
-
-ifeq ($(OS), Darwin)
-SHLIB_EXT = dylib
-CFLAGS-add+=-fPIC
-FFLAGS-add+=-fPIC
-endif
-
-ifeq ($(OS), WINNT)
-SHLIB_EXT = dll
-endif
-
-# SunOS with gcc
-ifeq ($(OS), SunOS)
-SHLIB_EXT = so
-CFLAGS-add+=-fPIC
-FFLAGS-add+=-fPIC
-endif
-
+LIBPATH = $(PREFIX_OS)$(PREFIX_ARCH)
 LIBNAME = libRmath.$(SHLIB_EXT)
-ifeq ($(OS), WINNT)
-LIBNAME = Rmath.dll
+
+ifeq ($(OS), Windows_NT)
+    LIBNAME = Rmath.dll
 endif

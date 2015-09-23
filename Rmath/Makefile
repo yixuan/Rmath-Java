@@ -41,12 +41,12 @@ SOURCES += sunif.c
 OBJECTS = $(SOURCES:.c=.o)
 HEADERS = bessel.h dpq.h nmath.h nmath2.h
 
-CFLAGS-add += -DMATHLIB_STANDALONE
+CFLAGS_EXTRA += -DMATHLIB_STANDALONE
 
 all: $(LIBNAME)
 
 %.o: %.c
-	$(CC) $(CPPFLAGS) $(CFLAGS-add) $(CFLAGS) -I../include -DNDEBUG -c $< -o $@
+	$(CC) $(CPPFLAGS) $(CFLAGS_EXTRA) $(CFLAGS) -I../include -DNDEBUG -c $< -o $@
 
 $(LIBNAME): $(OBJECTS)
 	$(CC) $(LDFLAGS) -shared -o $@ $^
