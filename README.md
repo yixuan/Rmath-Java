@@ -1,7 +1,7 @@
 # Rmath-Java
 
-Rmath-Java is a Java wrapper of the Rmath library from R, which contains
-functions related to statistical distributions.
+Rmath-Java is a Java wrapper of the Rmath library from [R](http://www.r-project.org),
+which contains functions related to statistical distributions.
 
 ## Dependency
 
@@ -45,3 +45,9 @@ import statr.rmath.Rmath
 
 Rmath.dnorm(1.2, 3.4, 5.6)
 ```
+
+## License
+
+Rmath-Java includes code from the R project which is licensed under
+[GPL (>= 2)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
+Rmath-Java itself is also licensed under GPL (>= 2).
