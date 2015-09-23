@@ -11,10 +11,12 @@ ifeq ($(OS), Windows_NT)
 
     ifeq ($(PROCESSOR_ARCHITECTURE), AMD64)
         PREFIX_ARCH = x86-64
+        CC += -m64
     endif
 
     ifeq ($(PROCESSOR_ARCHITECTURE), x86)
         PREFIX_ARCH = x86
+        CC += -m32
     endif
 
 else
